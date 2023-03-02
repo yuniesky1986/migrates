@@ -40,7 +40,8 @@ class SaleOrderBatchImporter(Component):
             woo_sale_order = self.env['woo.sale.order'].search(
                 [('external_id', '=', record_id)])
             if woo_sale_order:
-                self.update_existing_order(woo_sale_order[0], record_id)
+                continue
+                # self.update_existing_order(woo_sale_order[0], record_id)
             else:
                 order_ids.append(record_id)
         _logger.info('search for woo partners %s returned %s',
